@@ -1,0 +1,1407 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fixed navigation bar styling */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 8%;
+    background-color: #030928;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+nav ul li a:hover {
+    background-color: #925efb;
+    color: #000000; /* Change text color on hover */
+}
+
+/* Ensure each section takes up the full viewport height */
+section {
+    height: 100vh; /* Full viewport height */
+    padding: 20px; /* Adjust padding if needed */
+    box-sizing: border-box;
+    position: relative; /* Required for absolute positioning of children */
+    display: flex;
+    align-items: center; /* Center vertically */
+}
+
+
+
+
+#home {
+    background-color: #0c013af7; /* Matte black background */
+    color: #fff; /* White text color for contrast */
+    position: relative; /* Ensure the pseudo-element can be positioned absolutely */
+    overflow: hidden; /* Hide any overflow from the pseudo-element */
+}
+
+/* Bubble animation in the background */
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    pointer-events: none; /* Ensure it doesn't interfere with interactions */
+    z-index: -1; /* Place it behind other content */
+    animation: bubble 15s infinite;
+}
+
+/* Keyframes for bubble animation */
+@keyframes bubble {
+    0% {
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    }
+    50% {
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+    }
+    100% {
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    }
+}
+
+/* Layout for content on the left */
+.content-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 200px; /* Increased space between content and profile picture */
+    margin-left: 150px; /* Increased space on the left side */
+    flex: 1; /* Take up remaining space */
+}
+
+/* Styling for introduction text */
+.intro-text p {
+    font-size: 28px; /* Increase font size as needed */
+    margin: 0;
+    color: #94a9fc;
+}
+
+#name {
+    font-size: 80px; /* Increase font size as needed */
+    color: transparent; /* Make text color transparent for gradient effect */
+    background: rgb(183, 75, 245);
+    background-clip: text; /* Apply gradient to text */
+    margin: 20px 0; /* Increase space between intro text and name */
+}
+
+/* Styling for the sign icon */
+.sign-icon {
+    width: 70px; /* Adjust size as needed */
+    margin-bottom: 20px; /* Space below the icon */
+    animation: pop-shake 1.5s infinite; /* Apply the animation */
+}
+
+/* Keyframes for the pop shake effect */
+@keyframes pop-shake {
+    0%, 100% { 
+        transform: scale(1);
+    }
+    10%, 30%, 50%, 70% {
+        transform: scale(1.1) translateX(-2px);
+    }
+    20%, 40%, 60% {
+        transform: scale(1.1) translateX(2px);
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    90% {
+        transform: scale(1.15);
+    }
+}
+
+/* Add styles for rotating text effect */
+.rotating-text {
+    font-family: Lato, sans-serif;
+    font-weight: 600;
+    font-size: 48px; /* Increase font size as needed */
+    color: white;
+    position: relative;
+    overflow: hidden;
+    height: 1.5em; /* Adjust height to fit text */
+    transform: translateY(-78px); /* Move the content 30% upward */
+}
+
+.rotating-text p {
+    display: inline-flex;
+    margin: 0;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.rotating-text .word {
+    position: absolute;
+    display: flex;
+    transition: opacity 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    top: -5px;
+    left: 0;
+    margin-left: 290px; /* Adjust as needed */
+}
+
+.rotating-text .letter {
+    display: inline-block;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.rotating-text .letter.in {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.rotating-text .letter.out {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+/* Color classes for rotating text */
+.alizarin { color: #006eff; }
+.wisteria { color:  #00d0ff; }
+.peter-river { color: #6858fb; }
+
+/* Style for the floating circular profile picture */
+.profile-container {
+    position: absolute;
+    right: 200px; /* Increased space from the right */
+    top: 32%; /* Position from the top of the container */
+    transform: translateY(-70%); /* Center vertically */
+    width: 300px; /* Increased size */
+    height: 300px; /* Increased size */
+    animation: float 10s ease-in-out infinite;
+}
+
+.profile-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: #8b36f2; /* Circular background color */
+    box-shadow: 0 6px 30px rgb(255, 255, 255); /* Increased shadow size */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-color: #ffffff;
+}
+
+.profile-circle:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    box-shadow: 0 6px 30px rgb(191, 0, 255);
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Ensure image is rounded */
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    20% { transform: translateY(-40px); } /* Increased floating distance */
+    40% { transform: translateX(-30px); } /* Increased floating distance */
+    60% { transform: translateX(30px); } /* Increased floating distance */
+    80% { transform: translateY(-40px); } /* Increased floating distance */
+    100% { transform: translateY(0); }
+}
+
+/* Contact button styling */
+.contact-button {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 5PX;
+    width: 140px;
+    height: 38px;
+    text-align: center;
+    padding-top: 14PX;
+    background-color: #925efb;
+    color: white;
+    text-decoration: none;
+    font-size: 20px; /* Increased font size */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    border-style: solid;
+    border-color: #e3c6f9;
+}
+
+.contact-button:hover {
+    background-color: #6102ae;
+    color: #fffbfb; /* Change text color on hover */
+    box-shadow: 0 6px 30px #6102ae;
+}
+
+/* Styling for social icons */
+.social-icons {
+    display: flex;
+    gap: 20px; /* Space between icons */
+    margin-top: -60px; /* Space above social icons */
+    margin-left: 5px;
+}
+
+.social-icons img {
+    width: 45px; /* Adjust size as needed */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-icons img:hover {
+    transform: scale(1.2); /* Zoom in on hover */
+}
+
+
+
+
+
+
+/* Styling for other sections */
+/* Styling for other sections */
+#about {
+    height: 100vh; /* Two times the viewport height to extend to the second page */
+    background-color: #13064af7; /* Light background color */
+    color: #ffffff; /* Dark text color for contrast */
+    padding: 50px 0; /* Vertical padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: auto; /* Add scroll if needed */
+}
+
+/* Container for centering content on the first page */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Relative positioning for absolute children */
+}
+
+/* Styling for the box container */
+.about-box {
+    background-color: #0d0131; /* White background for the box */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 5px 5px 28px 10px rgba(255, 255, 255, 0.66); /* Shadow effect */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px; /* Adjust as needed */
+    width: 70%;
+    text-align: center; /* Center align text inside the box */
+    position: absolute; /* Absolute positioning to center within parent */
+    top: 50%; /* Center vertically within the viewport height */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center both vertically and horizontally */
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #ffffff;
+}
+
+
+
+.about-box:hover {
+    /* transform: scale(1.5); (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    box-shadow: 0 6px 30px #ad42ff;
+}
+
+/* Wrapper to place profile picture and content side by side */
+.profile-wrapper-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for the circular profile picture */
+.profile-circle-1 {
+    width: 180px; /* Increased size */
+    height: 180px; /* Increased size */
+    border-radius: 50%;
+    background-color: #8b36f2; /* Circular background color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Space between profile picture and content */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    border-style: solid;
+    border-color: #ffffff;
+}
+
+.profile-circle-1 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Ensure image is rounded */
+    object-fit: cover;
+}
+
+.profile-circle-1:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    box-shadow: 0 6px 30px #fffdff;
+}
+
+/* Styling for the content on the right side of the profile picture */
+.about-content {
+    max-width: 800px; /* Adjust as needed */
+}
+
+.about-content p {
+    font-size: 20px; /* Increased font size */
+    line-height: 1.6;
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+/* Resume button styling */
+.resume-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #925efb;
+    color: white;
+    text-decoration: none;
+    font-size: 18px; /* Increased font size */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 10px; /* Space above the button */
+    margin-bottom: 10px;
+    border-style: solid;
+    border-color: #e3c6f9;
+}
+
+.resume-button:hover {
+    background-color: #6102ae;
+    color: #fffbfb;
+    box-shadow: 0 6px 30px #6102ae;
+}
+
+
+
+/* Styling for the extended about section */
+#about-extend {
+    height: 100vh;
+    background-color: #13064af7; 
+    position: relative; 
+    padding: 50px 0; 
+}
+
+/* Vertical line styling */
+.vertical-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: calc(100vh - 100px); 
+    border-left: 2px solid #ffffff; 
+    top: 30px;
+}
+
+/* Circle styling */
+.circle {
+    position: absolute;
+    width: 95px; 
+    height: 95px; 
+    border-radius: 50%;
+    background-size: cover; 
+    background-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+}
+
+/* Top circle positioning */
+.top-circle {
+    top: -37px; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Bottom circle positioning */
+.bottom-circle {
+    bottom: -37px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Hover effect for circles */
+.top-circle:hover {
+    transform: scale(1.2) translateX(-75px); /* Adjust the translateX value as needed */
+    box-shadow: 0 6px 30px #bb63ff;
+}
+.bottom-circle:hover {
+    transform: scale(1.2); 
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+/* Left and right box styling */
+.left-box, .right-box {
+    position: absolute;
+    width: 30%; 
+    background-color: #0d0131; 
+    padding: 20px;
+    overflow-y: auto;
+    color: #ffffff; 
+    border-radius: 40px;
+    padding-left: 40px;
+    border-color: #ffffff;
+    border-style: solid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+}
+
+.left-box {
+    right: 10%;
+    height: calc(100vh - 200px); 
+    top: 60px; 
+    left: 10%; 
+}
+
+.right-box {
+    height: calc(100vh - 250px);
+    top: 90px; 
+    right: 10%;
+}
+
+/* Hover effect for left and right boxes */
+.left-box:hover, .right-box:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 6px 30px #ad42ff;
+}
+
+/* Content styling */
+.content h1 {
+    font-size: 1.8em; 
+    margin-bottom: 10px;
+    color: #5676f8;
+}
+
+.content .specialization {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #6980d8;
+}
+
+.content .cgpa {
+    font-size: 1em;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+    color: #546ac1;
+}
+
+.content h2 {
+    font-size: 1.4em; 
+    margin-bottom: 10px; 
+    color: #31b3ee;
+}
+
+.content h3 {
+    font-size: 1.1em; 
+    margin-bottom: 10px;
+    color: #4aaedc;
+}
+
+.content p {
+    font-size: 1em; 
+    margin-bottom: 10px;
+    color: #46acdb;
+    white-space: pre-wrap;
+    line-height: 18px;
+}
+
+.spacer {
+    height: 5px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#skills {
+    padding: 40px;
+    background-color: #0c013af7;
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.skill-box {
+    background-color: #05038c;
+    border: 3px solid #01e6ff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: calc(20% - 25px); /* Maintains equal width for all boxes */
+    box-sizing: border-box;
+    height: 150px; /* Ensures all boxes have the same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-box:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 0 20px #01e6ff; /* Neon glow effect */
+}
+
+.skill-box img {
+    max-width: 60px; /* Maintains image size */
+    height: auto;
+    margin-bottom: auto;
+    animation: imagePulse 1.5s infinite; /* Continuous zoom in and zoom out */
+}
+
+.skill-box:hover img {
+    animation: imageZoomInOut 0.8s infinite; /* Faster zoom in and zoom out on hover */
+}
+
+.skill-box p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 20px; /* Adjusted font size */
+    padding-top: 10px;
+    color: #ffffff;
+}
+
+@keyframes imagePulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes imageZoomInOut {
+    0%, 100% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+
+
+
+
+
+
+#experience {
+    height: 400vh; /* Extend the height to 600vh */
+    position: relative;
+    background-color: #13064af7; /* Background color */
+}
+
+.center-line {
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    background-color: #00FFFF;
+    height: calc(100% - 20px); /* Height to leave space at top and bottom */
+    top: 30px; /* Space at the top of the line */
+    transform: translateX(-50%);
+}
+
+.circle {
+    width: 100px; /* Increased size */
+    height: 100px; /* Increased size */
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: #7b00ff;
+    
+}
+
+.circle img {
+    width: 100%; /* Adjust to fit the new circle size */
+    height: 100%; /* Adjust to fit the new circle size */
+    border-radius: 50%;
+}
+
+.circle1 { top: 24px; }
+.circle2 { top: 15%; }
+.circle3 { top: 30%; }
+.circle4 { top: 45%; }
+.circle5 { top: 60%; }
+.circle6 { top: 75%; }
+
+
+.circle1:hover{
+        transform: scale(1.2) translateX(-75px); /* Adjust the translateX value as needed */
+        box-shadow: 0 6px 30px #bb63ff;
+}
+
+.circle2:hover{
+    transform: scale(1.2) ;
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.circle3:hover{
+    transform: scale(1.2) translateX(-75px); /* Adjust the translateX value as needed */
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.circle4:hover{
+    transform: scale(1.2) ;
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.circle5:hover{
+    transform: scale(1.2) translateX(-75px); /* Adjust the translateX value as needed */
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.circle6:hover{
+    transform: scale(1.2) ;
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+
+.experience-box {
+    width: 370px; /* Increased width */
+    padding: 20px;
+
+    background-color: #11083bf7; /* Slightly different color for visibility */
+    color: white;
+    box-shadow: 0px 0px 15px rgba(57, 239, 255, 0.947); /* Added glow effect */
+    border-radius: 10px; /* Rounded corners */
+    position: absolute;
+    margin-top: -20px; /* Move boxes upward */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.experience-box:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    background-color: #060144; /* Change background color to white */
+    color: #000000; /* Change text color to black for contrast */
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.box-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name {
+    font-size: 1.5em; /* Bigger font */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ab8bfc;
+}
+
+.role-duration,
+.dates {
+    font-size: 1em; /* Slightly smaller font compared to company name */
+    margin-bottom: 5px;
+   
+    color: #a07cfb;
+}
+
+.description {
+    margin-bottom: 15px; /* Space before tech stack */
+    margin-top: 14px;
+    color: #89ceff;
+}
+
+.point {
+    margin-bottom: 20px; /* Increased line spacing in box1 */
+}
+
+.tech-stack {
+    font-size: 1.5em; /* Bigger font */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #a07cfb;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between items */
+    color: #f9f8ff;
+}
+
+.tech-list span {
+    margin-right: 10px; /* Space between items */
+}
+
+/* Positioning for boxes */
+.box1 { 
+    left: 12%; 
+    top: calc(24px + 100px - 20px); /* Align with circle1 and move upward */
+}
+.box2 { 
+    right: 12%; /* Align with circle2 */
+    top: calc(15% + 100px - 20px); /* Align with circle2 and move upward */
+}
+.box3 { 
+    left: 12%; /* Align with circle3 on the left */
+    top: calc(30% + 100px - 20px); /* Align with circle3 and move upward */
+}
+.box4 { 
+    right: 12%; /* Align with circle4 on the right */
+    top: calc(45% + 100px - 20px); /* Align with circle4 and move upward */
+}
+.box5 {
+    left: 12%; 
+    top: calc(60% + 100px - 20px); /* Adjusted to align with circle5 */
+}
+.box6 { 
+    right: 12%; 
+    top: calc(75% + 100px - 20px); /* Align with circle6 and move upward */
+}
+
+
+
+/* General button styling */
+.certificate-btn,
+.website-btn {
+    background-color: #9b3dff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+/* Glow effect */
+.certificate-btn::before,
+.website-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    /* background: radial-gradient(circle, rgba(227, 137, 255, 0.3), transparent); */
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.certificate-btn:hover::before,
+.website-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Hover effect for the buttons */
+.certificate-btn:hover,
+.website-btn:hover {
+    background-color: #7b00ff;
+    box-shadow: 0 0 20px rgb(203, 89, 252);
+    transform: translateY(-2px);
+}
+
+.certificate-btn:active,
+.website-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
+}
+
+/* Experience container styling */
+.experience-container {
+    margin-bottom: 50px; /* Add space between each experience section */
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+    }
+
+    .certificate-btn,
+    .website-btn {
+        margin: 10px 0;
+        width: 100%;
+    }
+}
+
+
+
+
+
+#projects {
+    display: flex;
+    justify-content: space-between; /* Ensures the buttons are spaced apart */
+    align-items: center;
+    height: 100vh;
+    padding: 50px;
+    background-color: #0c013af7; /* Dark background */
+    position: relative; /* Ensure buttons can be positioned absolutely */
+}
+
+.project-container {
+    position: relative;
+    width: 60%;
+    max-width: 900px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto; /* Center the project container */
+}
+
+.project-image {
+    position: relative;
+    width: 60%; /* The image container's width */
+    height: 100%; /* The image fills its container */
+    z-index: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(110, 255, 255, 0.941);
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #60eaff;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fully fills its container */
+    transition: filter 0.3s ease, transform 0.3s ease;
+    border-radius: 15px;
+    filter: blur(5px); /* Start with a blurred image */
+}
+
+.project-image:hover img {
+    filter: blur(0px); /* Remove blur on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.project-details {
+    position: absolute; /* Absolute positioning to overlap the image container */
+    z-index: 2;
+    background-color: #d4a6fe;
+    padding: 30px;
+    width: 50%;
+    left: 45%; /* Positioning the content slightly outside the image container */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%) translateX(-20px); /* Slightly shifts it horizontally to overlap the image */
+    transition: transform 0.3s ease; /* Smooth transition for the content */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #68deff;
+}
+
+.project-details:hover {
+    transform: translateY(-50%) translateX(0); /* Move content fully into view on hover */
+    box-shadow: 0 6px 30px #78edff;
+
+}
+
+.project-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.project-subtitle {
+    font-size: 18px;
+    color: #2e2d2d;
+    margin-bottom: 20px;
+}
+
+.project-description {
+    font-size: 16px;
+    color: #262222;
+    margin-bottom: 30px;
+}
+
+.read-more {
+    font-size: 16px;
+    color: #fff;
+    background-color: #9d00ff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #6b04a2;
+    color: #fffbfb; /* Change text color on hover */
+    box-shadow: 0 6px 30px #b667f8;
+}
+
+/* Circular Navigation Buttons */
+.nav-button {
+    background-color: #60eaff;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Makes the button circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Position the buttons towards the corners */
+#prev-project {
+    left: 140px; /* Move the left button towards the corner */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#next-project {
+    right: 140px; /* Move the right button towards the corner */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-button:hover {
+    background-color: #6b04a2; /* Change color on hover */
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(110, 255, 255, 0.4);
+}
+
+
+
+
+
+
+
+/* Certifications Section */
+#certifications {
+    padding: 50px 20px;
+    background-color: #13064af7;
+    text-align: center;
+}
+
+.certifications-wrapper {
+    display: flex;
+    justify-content: space-between; /* Equal spacing between containers */
+    flex-wrap: wrap; /* Wrap containers to next line on smaller screens */
+    gap: 30px; /* Space between containers */
+    max-width: 1200px; /* Optional: to control the maximum width */
+    margin: 0 auto; /* Center the wrapper */
+}
+
+.certification-container {
+    width: 30%; /* Adjust width to fit the number of containers per row */
+    background-color: #11083bf7; 
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(129, 254, 254);
+    box-sizing: border-box; /* Include padding and border in width */
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #68deff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+}
+
+.certification-container:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.certification-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    color: #ffffff;
+}
+
+.certification-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 9px;
+    margin-bottom: 10px;
+    margin-left: -2px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #60eaff;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.certification-container:hover .certification-image {
+    transform: scale(1.2); /* Zoom effect on image when container is hovered */
+    box-shadow: 0 6px 20px #bb63ff;
+}
+
+.certification-subtitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #a717fb;
+    margin-bottom: 8px;
+    font-size: 30px;
+}
+
+.certification-date {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #8f0ac4;
+}
+
+.certification-organization {
+    font-size: 17px;
+    font-weight: bold;
+    color: #7d0fb8;
+    margin-bottom: 8px;
+}
+
+.certification-description {
+    font-size: 15px;
+    color: #65b5ff;
+}
+
+
+
+
+
+
+
+
+/* Volunteer Section */
+#volunteer {
+    padding: 50px 20px;
+    background-color: #0c013af7;
+    text-align: center;
+}
+
+.volunteer-container {
+    display: flex;
+    justify-content: space-between; /* Equal spacing between items */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
+    gap: 20px; /* Space between each item */
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+.volunteer-item {
+    background-color: #09022cf7;
+    padding: 25px; /* Increased padding for more height */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33% - 20px); /* Ensures items fit within the container and leaves space for the gap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    min-height: 400px; /* Increased minimum height */
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #68deff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+}
+
+.volunteer-item:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.volunteer-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.volunteer-image {
+    max-width: 250px; /* Increased image width */
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #68deff;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.volunteer-item:hover .volunteer-image {
+    transform: scale(1.3); /* Zoom effect on image when item is hovered */
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.volunteer-details {
+    text-align: center;
+    color: #b36cff;
+}
+
+.volunteer-role {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #912ffa;
+}
+
+.volunteer-organization {
+    font-size: 20px;
+    color: #a545ff;
+    margin-bottom: 10px;
+}
+
+.volunteer-duration {
+    font-size: 16px;
+    color: #9f39fe;
+    margin-bottom: 10px;
+}
+
+.volunteer-description {
+    font-size: 16px;
+    color: #76f1ff;
+}
+
+
+
+
+
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #13064af7;
+}
+
+#Contact {
+    position: relative;
+    z-index: 1; /* Ensures it appears on top if other sections overlap */
+}
+
+/* Custom Contact Form Styling */
+.custom-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 3px solid #67e8ff;
+    border-radius: 8px;
+    background-color: #070134;
+    box-shadow: 0 4px 8px rgb(129, 254, 254);
+    position: relative;
+}
+
+.custom-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: #7b15f6;
+}
+
+.custom-form-group {
+    margin-bottom: 10px;
+}
+
+.custom-form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #ce5bff;
+    padding: 5px;
+}
+
+.custom-form-group input, 
+.custom-form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.custom-form-group textarea {
+    resize: vertical;
+}
+
+/* Custom Submit Button Styling */
+.custom-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.custom-cont button {
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: #fff;
+    border: 4px solid #9113ff;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.custom-cont button:hover {
+    background-color: #f4f4f4;
+}
+
+.custom-cont button > span {
+    font-size: 14px;
+    color: #9113ff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+.custom-cont img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Custom Button Focus Animation */
+.custom-cont button.sent {
+    background: #9113ff;
+}
+
+.custom-cont button.sent > span {
+    opacity: 0;
+}
+
+.custom-cont button.sent > img {
+    opacity: 1;
+}
+
+/* Keyframe Animations */
+@keyframes custom-centerButton {
+    0% {
+        width: 300px;
+        height: 50px;
+        border-radius: 25px;
+    }
+    10% {
+        width: 310px;
+        height: 60px;
+        background: #fff;
+    }
+    20% {
+        width: 300px;
+        height: 50px;
+        background: #9113ff;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background: #9113ff;
+    }
+}
+
+@keyframes custom-disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes custom-appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Custom SweetAlert Styling */
+.swal2-container {
+    z-index: 9999 !important; /* Ensure SweetAlert appears on top */
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid grey;
+    background-color: #000333;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 19px;
+    color: #ffffff;
+}
+
+
+
