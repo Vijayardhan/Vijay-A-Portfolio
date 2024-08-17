@@ -8,6 +8,10 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
     });
 });
 
+
+
+// Home section
+
 document.addEventListener('DOMContentLoaded', () => {
     let words = document.querySelectorAll(".word");
     words.forEach(word => {
@@ -52,11 +56,128 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(rotateText, 4000);
 });
 
+
+
+
+
+
+//about
+
+document.addEventListener('DOMContentLoaded', () => {
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    const aboutSection = document.querySelector('#about .about-container');
+    if (aboutSection) {
+        observer.observe(aboutSection);
+    }
+});
+
+
+
+
+//about extend
+
+document.addEventListener('DOMContentLoaded', () => {
+    const leftBox = document.querySelector('.left-box');
+    const rightBox = document.querySelector('.right-box');
+    const aboutExtend = document.querySelector('#about-extend');
+
+    // Define the Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add animation class when in view
+                leftBox.classList.add('animate-left');
+                rightBox.classList.add('animate-right');
+            }
+        });
+    }, {
+        threshold: 0.1 // Adjust threshold as needed
+    });
+
+    // Start observing the #about-extend section
+    observer.observe(aboutExtend);
+});
+
+
+// skills
+
+document.addEventListener('DOMContentLoaded', () => {
+    const skillBoxes = document.querySelectorAll('.skill-box');
+
+    // Define the Intersection Observer
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add animation class when in view
+                entry.target.classList.add('animate');
+
+                // Stop observing after animation has been triggered
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Adjust threshold as needed
+    });
+
+    // Start observing each skill box
+    skillBoxes.forEach(box => {
+        observer.observe(box);
+    });
+});
+
+
+// Experience section
+
 function showNote() {
     alert("Currently Working");
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const options = {
+        root: null, // Use the viewport as the root
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    };
 
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                if (target.classList.contains('circle')) {
+                    target.classList.add('animate');
+                } else if (target.classList.contains('experience-box')) {
+                    target.classList.add('animate');
+                }
+                observer.unobserve(target); // Stop observing once animated
+            }
+        });
+    }, options);
+
+    document.querySelectorAll('.circle').forEach(circle => {
+        observer.observe(circle);
+    });
+
+    document.querySelectorAll('.experience-box').forEach(box => {
+        observer.observe(box);
+    });
+});
+
+
+// Project
 
 let currentProject = 1;
 
@@ -75,6 +196,121 @@ document.getElementById('next-project').addEventListener('click', () => {
         document.getElementById(`project-${currentProject}`).style.display = 'flex';
     }
 });
+
+
+function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('show');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    document.querySelectorAll('.project-container').forEach(container => {
+        observer.observe(container);
+    });
+});
+
+
+// Add event listeners to all navigation links to close the menu when a link is clicked
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('nav ul li a');
+    const menu = document.getElementById('nav-menu');
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('show');
+        });
+    });
+});
+
+
+// achievements
+
+document.addEventListener('DOMContentLoaded', () => {
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    document.querySelectorAll('.certification-container').forEach(container => {
+        observer.observe(container);
+    });
+});
+
+
+// volunteer
+
+document.addEventListener('DOMContentLoaded', () => {
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    document.querySelectorAll('.volunteer-item').forEach(item => {
+        observer.observe(item);
+    });
+});
+
+// contact
+
+document.addEventListener('DOMContentLoaded', () => {
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    const contactSection = document.querySelector('#Contact .custom-container');
+    if (contactSection) {
+        observer.observe(contactSection);
+    }
+});
+
+
+
 
 
 

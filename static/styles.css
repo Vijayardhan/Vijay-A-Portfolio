@@ -285,8 +285,39 @@ section {
 
 
 
+
+
+
+
 /* Styling for other sections */
 /* Styling for other sections */
+/* Define the keyframes for the pop-up effect */
+/* Keyframes for pop animation */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to the about container */
+.about-container {
+    opacity: 0; /* Start invisible */
+    transform: scale(0.8); /* Start smaller */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Add the animate class when in view */
+.about-container.animate {
+    animation: popIn 0.5s ease-out forwards;
+}
+
+
+/* Ensure existing styles for #about remain unchanged */
 #about {
     height: 100vh; /* Two times the viewport height to extend to the second page */
     background-color: #13064af7; /* Light background color */
@@ -299,7 +330,7 @@ section {
     overflow: auto; /* Add scroll if needed */
 }
 
-/* Container for centering content on the first page */
+/* Existing styles for .about-container, .about-box, etc. */
 .about-container {
     display: flex;
     justify-content: center;
@@ -309,7 +340,7 @@ section {
     position: relative; /* Relative positioning for absolute children */
 }
 
-/* Styling for the box container */
+/* Add pop-up animation to the .about-box */
 .about-box {
     background-color: #0d0131; /* White background for the box */
     border-radius: 10px; /* Rounded corners */
@@ -329,6 +360,7 @@ section {
     border-radius: 20px;
     border-color: #ffffff;
 }
+
 
 
 
@@ -440,6 +472,7 @@ section {
     top: -37px; 
     left: 50%;
     transform: translateX(-50%);
+    margin-left: -90px;
 }
 
 /* Bottom circle positioning */
@@ -447,6 +480,7 @@ section {
     bottom: -37px;
     left: 50%;
     transform: translateX(-50%);
+    margin-left: -10px;
 }
 
 /* Hover effect for circles */
@@ -537,6 +571,41 @@ section {
     height: 5px; 
 }
 
+/* Define keyframes for left-box animation */
+@keyframes slide-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Define keyframes for right-box animation */
+@keyframes slide-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation class for left-box */
+.animate-left {
+    animation: slide-in-left 1s ease-out forwards;
+}
+
+/* Animation class for right-box */
+.animate-right {
+    animation: slide-in-right 1s ease-out forwards;
+}
+
+
 
 
 
@@ -623,6 +692,23 @@ section {
     }
 }
 
+/* Keyframes for pop-up animation */
+@keyframes pop-up {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation class for skill boxes */
+.skill-box.animate {
+    animation: pop-up 0.5s ease-out forwards;
+}
+
 
 
 
@@ -650,7 +736,7 @@ section {
     height: 100px; /* Increased size */
     border-radius: 50%;
     position: absolute;
-    left: 50%;
+    left: 46.7%;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
@@ -672,6 +758,7 @@ section {
 .circle4 { top: 45%; }
 .circle5 { top: 60%; }
 .circle6 { top: 75%; }
+
 
 
 .circle1:hover{
@@ -878,6 +965,86 @@ section {
     }
 }
 
+/* Initial state for elements before animation */
+
+.experience-box {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.circle {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Animation for circles */
+@keyframes popUp {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animation for experience boxes */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Apply animation only when the class is active */
+
+.box1.animate,
+.box2.animate,
+.box3.animate,
+.box4.animate,
+.box5.animate,
+.box6.animate {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* Apply animation only when the class is active */
+.circle.animate {
+    animation: popUp 1s ease-out forwards;
+}
+
+.box1.animate,
+.box3.animate,
+.box5.animate {
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.box2.animate,
+.box4.animate,
+.box6.animate {
+    animation: slideInRight 1s ease-out forwards;
+}
+
+
+
 
 
 
@@ -1024,6 +1191,29 @@ section {
     box-shadow: 0 6px 20px rgba(110, 255, 255, 0.4);
 }
 
+/* Keyframes for pop animation */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to project containers */
+.project-container {
+    opacity: 0; /* Start invisible */
+    transform: scale(0.8); /* Start smaller */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Add the animate class when in view */
+.project-container.animate {
+    animation: popIn 0.5s ease-out forwards;
+}
 
 
 
@@ -1113,6 +1303,30 @@ section {
 .certification-description {
     font-size: 15px;
     color: #65b5ff;
+}
+
+/* Keyframes for pop animation */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to certification containers */
+.certification-container {
+    opacity: 0; /* Start invisible */
+    transform: scale(0.8); /* Start smaller */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Add the animate class when in view */
+.certification-container.animate {
+    animation: popIn 0.5s ease-out forwards;
 }
 
 
@@ -1213,6 +1427,31 @@ section {
     font-size: 16px;
     color: #76f1ff;
 }
+/* Keyframes for pop animation */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to volunteer items */
+.volunteer-item {
+    opacity: 0; /* Start invisible */
+    transform: scale(0.8); /* Start smaller */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Add the animate class when in view */
+.volunteer-item.animate {
+    animation: popIn 0.5s ease-out forwards;
+}
+
+
 
 
 
@@ -1244,6 +1483,7 @@ body {
     background-color: #070134;
     box-shadow: 0 4px 8px rgb(129, 254, 254);
     position: relative;
+    top :20px;
 }
 
 .custom-container h2 {
@@ -1404,4 +1644,26 @@ footer p {
 }
 
 
+/* Keyframes for pop animation */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
+/* Apply animation to the form container */
+.custom-container {
+    opacity: 0; /* Start invisible */
+    transform: scale(0.8); /* Start smaller */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Add the animate class when in view */
+.custom-container.animate {
+    animation: popIn 0.5s ease-out forwards;
+}
