@@ -3,9 +3,14 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
+
+
+
 /* Fixed navigation bar styling */
+/* Fixed size and position for the nav bar */
 nav {
     position: fixed;
     top: 0;
@@ -51,6 +56,79 @@ section {
     display: flex;
     align-items: center; /* Center vertically */
 }
+
+/* Hamburger menu styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed; /* Fix position to ensure it stays in view */
+    top: 5px; /* Adjusted top position */
+    right: 6px; /* Right padding */
+    width: 50px; /* Fixed width */
+    height: 50px; /* Fixed height */
+    z-index: 1100;
+}
+
+.hamburger div {
+    width: 25px; /* Width of hamburger lines */
+    height: 4px; /* Height of hamburger lines */
+    background-color: white;
+    margin: 6px 0; /* Spacing between lines */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    
+}
+
+/* Cross symbol styles */
+.hamburger.open div:nth-child(1) {
+    transform: rotate(45deg);
+    margin: 0;
+}
+
+.hamburger.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open div:nth-child(3) {
+    transform: rotate(-45deg);
+    margin: 0;
+}
+
+/* Media Query for phone screens */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide the menu items initially */
+        flex-direction: column;
+        position: fixed; /* Fixed position */
+        top: 60px; /* Adjusted to start below the fixed nav bar */
+        left: 0;
+        width: 100%; /* Full width */
+        background-color: #030928; /* Match background color */
+        border-top: 1px solid #fff;
+        z-index: 1000;
+    }
+
+    nav ul.show {
+        display: flex; /* Show menu items when hamburger is clicked */
+    }
+
+    nav ul li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #fff; /* Line between items */
+    }
+
+    nav ul li a {
+        padding: 15px;
+        display: block;
+        font-size: 18px; /* Increased font size for mobile */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon on mobile */
+    }
+}
+
 
 
 
@@ -282,6 +360,63 @@ section {
 
 
 
+@media (max-width: 768px) {
+    #home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px; /* Adjust padding as needed */
+    }
+
+    .content-left {
+        margin-right: 0; /* Remove right margin */
+        margin-left: 0;  /* Remove left margin */
+        align-items: center; /* Center content */
+        text-align: center; /* Center text */
+    }
+
+    .sign-icon {
+        width: 50px; /* Adjust size for smaller screens */
+        margin-bottom: 15px; /* Adjust spacing */
+    }
+
+    .intro-text p {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+
+    #name {
+        font-size: 50px; /* Adjust font size for smaller screens */
+        margin: 15px 0; /* Adjust spacing */
+    }
+
+    .rotating-text {
+        font-size: 32px; /* Adjust font size */
+        transform: translateY(0); /* Adjust position */
+        margin: 20px 0; /* Add margin for spacing */
+    }
+
+    .profile-container {
+        position: static; /* Make it part of the normal flow */
+        margin-top: 20px; /* Adjust spacing */
+        width: 200px; /* Adjust size */
+        height: 200px; /* Adjust size */
+        transform: translateY(0); /* Remove translation */
+        
+    }
+
+    .social-icons {
+        margin-top: 20px; /* Adjust margin for spacing */
+        justify-content: center; /* Center the icons */
+        gap: 15px; /* Adjust gap */
+    }
+
+    .contact-button {
+        margin-top: 20px; /* Adjust spacing */
+        width: 120px; /* Adjust size */
+        height: 34px; /* Adjust size */
+        font-size: 18px; /* Adjust font size */
+    }
+}
 
 
 
@@ -435,6 +570,72 @@ section {
     color: #fffbfb;
     box-shadow: 0 6px 30px #6102ae;
 }
+
+@media (max-width: 768px) {
+    /* Adjust the #about section */
+    #about {
+        height: 120vh; /* Increase height to 120% of viewport height */
+        padding: 20px; /* Reduce vertical padding */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+    }
+
+    /* Adjust the about-container to fit smaller screens */
+    .about-container {
+        width: 90%; /* Increase width slightly */
+        height: auto; /* Allow height to adjust based on content */
+        padding: 10px; /* Add some padding */
+        margin-top: 50px; /* Add margin to push the container down */
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    /* Adjust the about-box */
+    .about-box {
+        width: 100%; /* Full width of the container */
+        max-width: none; /* Remove maximum width constraint */
+        padding: 20px; /* Reduce padding */
+        box-shadow: 3px 3px 20px rgba(255, 255, 255, 0.5); /* Adjust shadow */
+        border-radius: 15px; /* Slightly rounded corners */
+        text-align: left; /* Align text to the left for better readability */
+    }
+
+    /* Adjust profile-wrapper-1 to stack items vertically */
+    .profile-wrapper-1 {
+        flex-direction: column; /* Stack profile picture and content vertically */
+        align-items: center; /* Center align items horizontally */
+    }
+
+    /* Adjust profile-circle-1 size */
+    .profile-circle-1 {
+        width: 120px; /* Smaller size */
+        height: 120px; /* Smaller size */
+        margin-bottom: 15px; /* Reduce space between profile picture and content */
+    }
+
+    /* Adjust profile-circle-1 image size */
+    .profile-circle-1 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Adjust about-content font size and margin */
+    .about-content p {
+        font-size: 16px; /* Smaller font size for readability on small screens */
+        line-height: 1.5;
+        margin-bottom: 15px; /* Reduce space below paragraph */
+    }
+
+    /* Adjust resume-button size and font size */
+    .resume-button {
+        font-size: 16px; /* Smaller font size */
+        padding: 10px 20px; /* Adjust padding */
+        margin-top: 15px; /* Increase space above the button */
+    }
+}
+
+
 
 
 
@@ -605,6 +806,77 @@ section {
     animation: slide-in-right 1s ease-out forwards;
 }
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    /* Align the line and circle to the left side */
+    .vertical-line {
+        left: 20px;
+        transform: none;
+        height: calc(130vh - 150px);
+        top: 20px;
+    }
+
+    /* Adjust circle size */
+    .circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Adjust circle positioning */
+    .top-circle {
+        top: -30px;
+        left: 0;
+        transform: none;
+        margin-left: -10px;
+    }
+
+    .bottom-circle {
+        bottom: -30px;
+        left: 0;
+        transform: none;
+        margin-left: -10px;
+    }
+
+    /* Place containers on the right side with reduced width and spacing between */
+    .left-box, .right-box {
+        width: 75%; /* Reduced width */
+        left: auto;
+        right: auto;
+        margin-left: 70px;
+        padding: 10px;
+        border-radius: 20px;
+        margin-bottom: 20px; /* Add space between containers */
+    }
+
+    .left-box {
+        top: 80px;
+        height: auto;
+    }
+
+    .right-box {
+        top: 550px;
+        height: auto;
+    }
+
+    /* Reduce font size for smaller screens */
+    .content h1 {
+        font-size: 1.2em; /* Smaller font size */
+    }
+
+    .content .specialization,
+    .content .cgpa,
+    .content h2,
+    .content h3,
+    .content p {
+        font-size: 0.8em; /* Reduced font size */
+    }
+
+    /* Adjust padding for smaller screens */
+    #about-extend {
+        padding: 20px 0;
+        height: 130vh;
+    }
+}
 
 
 
@@ -958,6 +1230,7 @@ section {
         flex-direction: column;
     }
 
+    
     .certificate-btn,
     .website-btn {
         margin: 10px 0;
@@ -1042,6 +1315,174 @@ section {
 .box6.animate {
     animation: slideInRight 1s ease-out forwards;
 }
+
+
+
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    .center-line {
+        left: 10%; /* Move the vertical line to the left */
+    }
+    
+
+    
+    .circle {
+        left: 5%; /* Move the circles to the left */
+        transform: none; /* Reset the transform property */
+        margin-top: -10px;
+    }
+    
+
+    .experience-box {
+        left: auto;
+        right: 5%; /* Position the boxes to the right */
+        width: 70%; /* Reduce the width of the boxes */
+        padding: 15px; /* Reduce padding inside the boxes */
+        margin-bottom: 100px; /* Space between each box */
+    }
+
+    /* Adjust font sizes inside the boxes */
+    .company-name {
+        font-size: 1.2em; /* Reduce the font size */
+    }
+
+    .role-duration,
+    .dates {
+        font-size: 0.9em; /* Reduce the font size */
+    }
+
+    .description {
+        font-size: 0.9em; /* Reduce the font size */
+    }
+
+    .tech-stack {
+        font-size: 1.2em; /* Reduce the font size */
+    }
+
+    .tech-list {
+        font-size: 0.9em; /* Reduce the font size of tech list items */
+    }
+
+    /* Aligning boxes with circles */
+    .box1 { top: calc(24px + 100px - 20px); }
+    .box2 { top: calc(15% + 100px - 20px); }
+    .box3 { top: calc(30% + 100px - 20px); }
+    .box4 { top: calc(45% + 100px - 20px); }
+    .box5 { top: calc(60% + 100px - 20px); }
+    .box6 { top: calc(75% + 100px - 20px); }
+
+    /* Adjust button containers */
+    .button-container {
+        flex-direction: column;
+        align-items: flex-start; /* Align buttons to the start */
+    }
+
+    .certificate-btn,
+    .website-btn {
+        margin: 10px 0;
+        width: 100%;
+    }
+}
+
+
+
+
+/* Media query for phone screens */
+@media screen and (max-width: 480px) {
+    .experience-box {
+        width: 75%; /* Set width to ensure the box fits within the screen */
+        margin: 6px auto; /* Increase margin to create more space between boxes */
+        padding: 10px; /* Adjust padding for content spacing inside the box */
+        font-size: 14px; /* Maintain smaller font size for readability */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+
+    .experience-box.box2{
+        width: 75%; /* Set width to ensure the box fits within the screen */
+        margin: 260px auto; /* Increase margin to create more space between boxes */
+        padding: 10px; /* Adjust padding for content spacing inside the box */
+        font-size: 14px; /* Maintain smaller font size for readability */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+
+    .circle2{
+        margin-top: 250px;
+    }
+
+    .experience-box.box3{
+        width: 75%; /* Set width to ensure the box fits within the screen */
+        margin: 410px auto; /* Increase margin to create more space between boxes */
+        padding: 10px; /* Adjust padding for content spacing inside the box */
+        font-size: 14px; /* Maintain smaller font size for readability */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+    .circle3{
+        margin-top: 400px;
+    }
+
+    .experience-box.box4{
+        width: 75%; /* Set width to ensure the box fits within the screen */
+        margin: 570px auto; /* Increase margin to create more space between boxes */
+        padding: 10px; /* Adjust padding for content spacing inside the box */
+        font-size: 14px; /* Maintain smaller font size for readability */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+
+    .circle4{
+        margin-top: 560px;
+    }
+
+    .experience-box.box5{
+        width: 75%; /* Set width to ensure the box fits within the screen */
+        margin: 810px auto; /* Increase margin to create more space between boxes */
+        padding: 10px; /* Adjust padding for content spacing inside the box */
+        font-size: 14px; /* Maintain smaller font size for readability */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+
+    .circle5{
+        margin-top: 800px;
+    }
+
+    .experience-box.box6{
+        width: 75%; /* Set width to ensure the box fits within the screen */
+        margin: 550px auto; /* Increase margin to create more space between boxes */
+        padding: 10px; /* Adjust padding for content spacing inside the box */
+        font-size: 14px; /* Maintain smaller font size for readability */
+        box-sizing: border-box; /* Ensure padding and border are included in the width */
+    }
+
+    .circle6{
+        margin-top: 600px;
+    }
+
+    
+
+    .container {
+        padding: 10px; /* Adjust container padding if necessary */
+    }
+
+    h1 {
+        font-size: 24px; /* Adjust header size */
+    }
+
+    p {
+        font-size: 12px; /* Adjust paragraph size */
+    }
+
+    /* Extend height of the experience section */
+.experience-section {
+    min-height: 1200vh; /* Adjust this value as needed to extend the height */
+    padding-bottom: 100px; /* Add padding at the bottom to ensure space at the end */
+}
+
+}
+
+
+
+
+
 
 
 

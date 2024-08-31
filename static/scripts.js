@@ -9,6 +9,13 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
 });
 
 
+function toggleMenu(hamburger) {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('show');
+    hamburger.classList.toggle('open');
+}
+
+
 
 // Home section
 
