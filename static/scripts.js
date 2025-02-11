@@ -197,7 +197,7 @@ document.getElementById('prev-project').addEventListener('click', () => {
 });
 
 document.getElementById('next-project').addEventListener('click', () => {
-    if (currentProject < 3) { // Update this number to reflect the total number of projects
+    if (currentProject < 4) { // Update this number to reflect the total number of projects
         document.getElementById(`project-${currentProject}`).style.display = 'none';
         currentProject++;
         document.getElementById(`project-${currentProject}`).style.display = 'flex';
@@ -267,6 +267,29 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(container);
     });
 });
+
+
+
+// publications
+
+let currentPublication = 1;
+
+document.getElementById('prev-publication').addEventListener('click', () => {
+    if (currentPublication > 1) {
+        document.getElementById(`publication-${currentPublication}`).style.display = 'none';
+        currentPublication--;
+        document.getElementById(`publication-${currentPublication}`).style.display = 'flex';
+    }
+});
+
+document.getElementById('next-publication').addEventListener('click', () => {
+    if (currentPublication < 1) { // Update when more publications are added
+        document.getElementById(`publication-${currentPublication}`).style.display = 'none';
+        currentPublication++;
+        document.getElementById(`publication-${currentPublication}`).style.display = 'flex';
+    }
+});
+
 
 
 // volunteer
