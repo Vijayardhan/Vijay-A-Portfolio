@@ -133,6 +133,7 @@ section {
 
 
 #home {
+    height: 100vh;
     background-color: #0c013af7; /* Matte black background */
     color: #fff; /* White text color for contrast */
     position: relative; /* Ensure the pseudo-element can be positioned absolutely */
@@ -180,6 +181,16 @@ section {
     flex: 1; /* Take up remaining space */
 }
 
+.typing-svg-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust as needed */
+
+    @media screen and (max-width: 468px){  
+        margin-left: 100px;
+    }
+}
+
 /* Styling for introduction text */
 .intro-text p {
     font-size: 28px; /* Increase font size as needed */
@@ -221,57 +232,6 @@ section {
     }
 }
 
-/* Add styles for rotating text effect */
-.rotating-text {
-    font-family: Lato, sans-serif;
-    font-weight: 600;
-    font-size: 48px; /* Increase font size as needed */
-    color: white;
-    position: relative;
-    overflow: hidden;
-    height: 1.5em; /* Adjust height to fit text */
-    transform: translateY(-78px); /* Move the content 30% upward */
-}
-
-.rotating-text p {
-    display: inline-flex;
-    margin: 0;
-    vertical-align: top;
-    white-space: nowrap;
-}
-
-.rotating-text .word {
-    position: absolute;
-    display: flex;
-    transition: opacity 0.5s ease-in-out;
-    width: 100%;
-    height: 100%;
-    top: -5px;
-    left: 0;
-    margin-left: 290px; /* Adjust as needed */
-}
-
-.rotating-text .letter {
-    display: inline-block;
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-
-.rotating-text .letter.in {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.rotating-text .letter.out {
-    transform: translateY(100%);
-    opacity: 0;
-}
-
-/* Color classes for rotating text */
-.alizarin { color: #006eff; }
-.wisteria { color:  #00d0ff; }
-.peter-river { color: #6858fb; }
 
 /* Style for the floating circular profile picture */
 .profile-container {
@@ -348,7 +308,6 @@ section {
 .social-icons {
     display: flex;
     gap: 20px; /* Space between icons */
-    margin-top: -60px; /* Space above social icons */
     margin-left: 5px;
 }
 
@@ -479,9 +438,6 @@ section {
 
 
 
-
-
-
 /* Styling for other sections */
 /* Styling for other sections */
 /* Define the keyframes for the pop-up effect */
@@ -512,13 +468,13 @@ section {
 
 /* Ensure existing styles for #about remain unchanged */
 #about {
-    height: 100vh; /* Two times the viewport height to extend to the second page */
     background-color: #13064af7; /* Light background color */
     color: #ffffff; /* Dark text color for contrast */
     padding: 50px 0; /* Vertical padding */
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: justify;
     position: relative;
     overflow: auto; /* Add scroll if needed */
 }
@@ -602,6 +558,7 @@ section {
 }
 
 .about-content p {
+    text-align: justify;
     font-size: 20px; /* Increased font size */
     line-height: 1.6;
     margin-bottom: 20px; /* Space below the paragraph */
