@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    overflow-x: hidden;
 }
 
 
@@ -49,7 +49,6 @@ nav ul li a:hover {
 
 /* Ensure each section takes up the full viewport height */
 section {
-    height: 100vh; /* Full viewport height */
     padding: 20px; /* Adjust padding if needed */
     box-sizing: border-box;
     position: relative; /* Required for absolute positioning of children */
@@ -138,6 +137,10 @@ section {
     color: #fff; /* White text color for contrast */
     position: relative; /* Ensure the pseudo-element can be positioned absolutely */
     overflow: hidden; /* Hide any overflow from the pseudo-element */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px; /* Adjust padding as needed */
 }
 
 /* Bubble animation in the background */
@@ -418,6 +421,61 @@ section {
     }
 }
 
+ @media screen and (max-width: 468px){
+    #home {
+        padding: 50px; /* Adjust padding as needed */
+    }
+    .content-left {
+        margin-right: 0; /* Remove right margin */ 
+        margin-left: 0;  /* Remove left margin */
+        align-items: center; /* Center content */
+        text-align: center; /* Center text */
+        margin-top: 60px; /* Adjust margin for spacing */   
+
+    }
+
+    .sign-icon {
+        width: 50px; /* Adjust size for smaller screens */
+        margin-bottom: 15px; /* Adjust spacing */
+    }
+
+    .intro-text p {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+
+    #name {
+        font-size: 50px; /* Adjust font size for smaller screens */
+        margin: 15px 0; /* Adjust spacing */
+    }
+
+    .rotating-text {
+        font-size: 32px; /* Adjust font size */
+        transform: translateY(0); /* Adjust position */
+        margin: 20px 0; /* Add margin for spacing */
+    }
+
+    .profile-container {
+        position: static; /* Make it part of the normal flow */
+        margin-top: 20px; /* Adjust spacing */
+        width: 200px; /* Adjust size */
+        height: 200px; /* Adjust size */
+        transform: translateY(0); /* Remove translation */
+        
+    }
+
+    .social-icons {
+        margin-top: 20px; /* Adjust margin for spacing */
+        justify-content: center; /* Center the icons */
+        gap: 15px; /* Adjust gap */
+    }
+
+    .contact-button {
+        margin-top: 20px; /* Adjust spacing */
+        width: 120px; /* Adjust size */
+        height: 34px; /* Adjust size */
+        font-size: 18px; /* Adjust font size */
+    }
+ }
 
 
 
@@ -879,16 +937,6 @@ section {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 #skills {
     padding: 40px;
     background-color: #0c013af7;
@@ -981,11 +1029,35 @@ section {
     animation: pop-up 0.5s ease-out forwards;
 }
 
+@media (max-width: 1024px) {
+    .skill-box {
+        width: calc(33.33% - 20px); /* Adjust width for 3 boxes */
+    }
+}
+
+/* For mobile (2 boxes) */
+@media (max-width: 768px) {
+    .skill-box {
+        width: calc(50% - 15px); /* Adjust width for 2 boxes */
+    }
+}
+
+/* For smaller mobile screens (1 box) */
+@media (max-width: 480px) {
+    .skill-box {
+        width: calc(100% - 10px); /* Adjust width for 1 box */
+    }
+}
 
 
 
 
 
+
+/* ###################################################### */
+
+
+/* ...existing code... */
 
 #experience {
     height: 400vh; /* Extend the height to 600vh */
@@ -1015,7 +1087,6 @@ section {
     align-items: center;
     border-style: solid;
     border-color: #7b00ff;
-    
 }
 
 .circle img {
@@ -1031,43 +1102,39 @@ section {
 .circle5 { top: 60%; }
 .circle6 { top: 75%; }
 
-
-
-.circle1:hover{
-        transform: scale(1.2) translateX(-75px); /* Adjust the translateX value as needed */
-        box-shadow: 0 6px 30px #bb63ff;
-}
-
-.circle2:hover{
-    transform: scale(1.2) ;
-    box-shadow: 0 6px 30px #bb63ff;
-}
-
-.circle3:hover{
+.circle1:hover {
     transform: scale(1.2) translateX(-75px); /* Adjust the translateX value as needed */
     box-shadow: 0 6px 30px #bb63ff;
 }
 
-.circle4:hover{
-    transform: scale(1.2) ;
+.circle2:hover {
+    transform: scale(1.2);
     box-shadow: 0 6px 30px #bb63ff;
 }
 
-.circle5:hover{
+.circle3:hover {
     transform: scale(1.2) translateX(-75px); /* Adjust the translateX value as needed */
     box-shadow: 0 6px 30px #bb63ff;
 }
 
-.circle6:hover{
-    transform: scale(1.2) ;
+.circle4:hover {
+    transform: scale(1.2);
     box-shadow: 0 6px 30px #bb63ff;
 }
 
+.circle5:hover {
+    transform: scale(1.2) translateX(-75px); /* Adjust the translateX value as needed */
+    box-shadow: 0 6px 30px #bb63ff;
+}
+
+.circle6:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 30px #bb63ff;
+}
 
 .experience-box {
     width: 370px; /* Increased width */
     padding: 20px;
-
     background-color: #11083bf7; /* Slightly different color for visibility */
     color: white;
     box-shadow: 0px 0px 15px rgba(57, 239, 255, 0.947); /* Added glow effect */
@@ -1100,7 +1167,6 @@ section {
 .dates {
     font-size: 1em; /* Slightly smaller font compared to company name */
     margin-bottom: 5px;
-   
     color: #a07cfb;
 }
 
@@ -1133,32 +1199,30 @@ section {
 }
 
 /* Positioning for boxes */
-.box1 { 
-    left: 12%; 
+.box1 {
+    left: 12%;
     top: calc(24px + 100px - 20px); /* Align with circle1 and move upward */
 }
-.box2 { 
+.box2 {
     right: 12%; /* Align with circle2 */
     top: calc(15% + 100px - 20px); /* Align with circle2 and move upward */
 }
-.box3 { 
+.box3 {
     left: 12%; /* Align with circle3 on the left */
     top: calc(30% + 100px - 20px); /* Align with circle3 and move upward */
 }
-.box4 { 
+.box4 {
     right: 12%; /* Align with circle4 on the right */
     top: calc(45% + 100px - 20px); /* Align with circle4 and move upward */
 }
 .box5 {
-    left: 12%; 
+    left: 12%;
     top: calc(60% + 100px - 20px); /* Adjusted to align with circle5 */
 }
-.box6 { 
-    right: 12%; 
+.box6 {
+    right: 12%;
     top: calc(75% + 100px - 20px); /* Align with circle6 and move upward */
 }
-
-
 
 /* General button styling */
 .certificate-btn,
@@ -1174,7 +1238,6 @@ section {
     transition: all 0.3s ease-in-out;
     position: relative;
     overflow: hidden;
-    
 }
 
 /* Glow effect */
@@ -1186,7 +1249,6 @@ section {
     left: 50%;
     width: 300%;
     height: 300%;
-    /* background: radial-gradient(circle, rgba(227, 137, 255, 0.3), transparent); */
     transition: all 0.5s ease;
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
@@ -1230,7 +1292,6 @@ section {
         flex-direction: column;
     }
 
-    
     .certificate-btn,
     .website-btn {
         margin: 10px 0;
@@ -1239,7 +1300,6 @@ section {
 }
 
 /* Initial state for elements before animation */
-
 .experience-box {
     opacity: 0;
     transform: scale(0.5);
@@ -1287,7 +1347,6 @@ section {
 }
 
 /* Apply animation only when the class is active */
-
 .box1.animate,
 .box2.animate,
 .box3.animate,
@@ -1316,23 +1375,17 @@ section {
     animation: slideInRight 1s ease-out forwards;
 }
 
-
-
-
 /* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
     .center-line {
         left: 10%; /* Move the vertical line to the left */
     }
-    
 
-    
     .circle {
         left: 5%; /* Move the circles to the left */
         transform: none; /* Reset the transform property */
         margin-top: -10px;
     }
-    
 
     .experience-box {
         left: auto;
@@ -1385,9 +1438,6 @@ section {
     }
 }
 
-
-
-
 /* Media query for phone screens */
 @media screen and (max-width: 480px) {
     .experience-box {
@@ -1398,7 +1448,7 @@ section {
         box-sizing: border-box; /* Ensure padding and border are included in the width */
     }
 
-    .experience-box.box2{
+    .experience-box.box2 {
         width: 75%; /* Set width to ensure the box fits within the screen */
         margin: 260px auto; /* Increase margin to create more space between boxes */
         padding: 10px; /* Adjust padding for content spacing inside the box */
@@ -1406,22 +1456,22 @@ section {
         box-sizing: border-box; /* Ensure padding and border are included in the width */
     }
 
-    .circle2{
+    .circle2 {
         margin-top: 250px;
     }
 
-    .experience-box.box3{
+    .experience-box.box3 {
         width: 75%; /* Set width to ensure the box fits within the screen */
         margin: 410px auto; /* Increase margin to create more space between boxes */
         padding: 10px; /* Adjust padding for content spacing inside the box */
         font-size: 14px; /* Maintain smaller font size for readability */
         box-sizing: border-box; /* Ensure padding and border are included in the width */
     }
-    .circle3{
+    .circle3 {
         margin-top: 400px;
     }
 
-    .experience-box.box4{
+    .experience-box.box4 {
         width: 75%; /* Set width to ensure the box fits within the screen */
         margin: 570px auto; /* Increase margin to create more space between boxes */
         padding: 10px; /* Adjust padding for content spacing inside the box */
@@ -1429,11 +1479,11 @@ section {
         box-sizing: border-box; /* Ensure padding and border are included in the width */
     }
 
-    .circle4{
+    .circle4 {
         margin-top: 560px;
     }
 
-    .experience-box.box5{
+    .experience-box.box5 {
         width: 75%; /* Set width to ensure the box fits within the screen */
         margin: 810px auto; /* Increase margin to create more space between boxes */
         padding: 10px; /* Adjust padding for content spacing inside the box */
@@ -1441,11 +1491,11 @@ section {
         box-sizing: border-box; /* Ensure padding and border are included in the width */
     }
 
-    .circle5{
+    .circle5 {
         margin-top: 800px;
     }
 
-    .experience-box.box6{
+    .experience-box.box6 {
         width: 75%; /* Set width to ensure the box fits within the screen */
         margin: 550px auto; /* Increase margin to create more space between boxes */
         padding: 10px; /* Adjust padding for content spacing inside the box */
@@ -1453,11 +1503,9 @@ section {
         box-sizing: border-box; /* Ensure padding and border are included in the width */
     }
 
-    .circle6{
+    .circle6 {
         margin-top: 600px;
     }
-
-    
 
     .container {
         padding: 10px; /* Adjust container padding if necessary */
@@ -1472,19 +1520,15 @@ section {
     }
 
     /* Extend height of the experience section */
-.experience-section {
-    min-height: 1200vh; /* Adjust this value as needed to extend the height */
-    padding-bottom: 100px; /* Add padding at the bottom to ensure space at the end */
+    .experience-section {
+        min-height: 1200vh; /* Adjust this value as needed to extend the height */
+        padding-bottom: 100px; /* Add padding at the bottom to ensure space at the end */
+    }
 }
 
-}
+/* ...existing code... */
 
-
-
-
-
-
-
+/* ###################################################### */
 
 
 
@@ -1492,12 +1536,13 @@ section {
 
 #projects {
     display: flex;
-    justify-content: space-between; /* Ensures the buttons are spaced apart */
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
     padding: 50px;
-    background-color: #0c013af7; /* Dark background */
-    position: relative; /* Ensure buttons can be positioned absolutely */
+    background-color: #0c013af7;
+    position: relative;
+    flex-direction: column; /* Stack items vertically on smaller screens */
 }
 
 .project-container {
@@ -1507,14 +1552,13 @@ section {
     height: 500px;
     display: flex;
     align-items: center;
-    margin: 0 auto; /* Center the project container */
+    margin: 0 auto;
+    flex-direction: column; /* Stack items vertically on smaller screens */
 }
 
 .project-image {
-    position: relative;
-    width: 60%; /* The image container's width */
-    height: 100%; /* The image fills its container */
-    z-index: 1;
+    width: 50%;
+    height: 50%;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(110, 255, 255, 0.941);
@@ -1526,28 +1570,20 @@ section {
 .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image fully fills its container */
-    transition: filter 0.3s ease, transform 0.3s ease;
+    object-fit: fill;
+    transition: transform 0.3s ease;
     border-radius: 15px;
-    filter: blur(5px); /* Start with a blurred image */
-}
-
-.project-image:hover img {
-    filter: blur(0px); /* Remove blur on hover */
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    box-shadow: 0 6px 30px #bb63ff;
 }
 
 .project-details {
-    position: absolute; /* Absolute positioning to overlap the image container */
+    position: relative;
     z-index: 2;
     background-color: #d4a6fe;
     padding: 30px;
-    width: 50%;
-    left: 45%; /* Positioning the content slightly outside the image container */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%) translateX(-20px); /* Slightly shifts it horizontally to overlap the image */
-    transition: transform 0.3s ease; /* Smooth transition for the content */
+    width: 100%;
+    top: 20px;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-style: solid;
@@ -1555,17 +1591,11 @@ section {
     border-color: #68deff;
 }
 
-.project-details:hover {
-    transform: translateY(-50%) translateX(0); /* Move content fully into view on hover */
-    box-shadow: 0 6px 30px #78edff;
-
-}
-
 .project-title {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: bold;
+    color: #000;
     margin-bottom: 10px;
-    color: #000000;
 }
 
 .project-subtitle {
@@ -1592,7 +1622,7 @@ section {
 
 .read-more:hover {
     background-color: #6b04a2;
-    color: #fffbfb; /* Change text color on hover */
+    color: #fffbfb;
     box-shadow: 0 6px 30px #b667f8;
 }
 
@@ -1605,7 +1635,7 @@ section {
     cursor: pointer;
     width: 50px;
     height: 50px;
-    border-radius: 50%; /* Makes the button circular */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1613,51 +1643,86 @@ section {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Position the buttons towards the corners */
 #prev-project {
-    left: 140px; /* Move the left button towards the corner */
-    top: 50%;
+    left: 100px;
+    top: 20%;
     transform: translateY(-50%);
 }
 
 #next-project {
-    right: 140px; /* Move the right button towards the corner */
-    top: 50%;
+    right: 100px;
+    top: 20%;
     transform: translateY(-50%);
 }
 
 .nav-button:hover {
-    background-color: #6b04a2; /* Change color on hover */
+    background-color: #6b04a2;
     color: #fff;
     box-shadow: 0 6px 20px rgba(110, 255, 255, 0.4);
 }
 
-/* Keyframes for pop animation */
-@keyframes popIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
+@media screen and (max-width: 1024px) {
+    .project-container {
+        width: 80%;
+        height: auto;
     }
-    100% {
-        opacity: 1;
-        transform: scale(1);
+
+    .project-image {
+        height: 50%;
+    }
+
+    .project-details {
+        width: 90%;
+        top: 10px;
+        transform: translateY(0);
     }
 }
 
-/* Apply animation to project containers */
-.project-container {
-    opacity: 0; /* Start invisible */
-    transform: scale(0.8); /* Start smaller */
-    transition: opacity 0.5s ease, transform 0.5s ease;
+@media screen and (max-width: 768px) {
+    .project-container {
+        width: 90%;
+        height: auto;
+    }
+
+    .project-image {
+        height: 40%;
+    }
+
+    .project-details {
+        width: 100%;
+        top: 10px;
+        transform: translateY(0);
+    }
+
+    #prev-project, #next-project {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
 }
 
-/* Add the animate class when in view */
-.project-container.animate {
-    animation: popIn 0.5s ease-out forwards;
+@media screen and (max-width: 480px) {
+    .project-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .project-image {
+        height: 30%;
+    }
+
+    .project-details {
+        width: 100%;
+        top: 10px;
+        transform: translateY(0);
+    }
+
+    #prev-project, #next-project {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
 }
-
-
-
 
 
 
@@ -1770,13 +1835,18 @@ section {
     animation: popIn 0.5s ease-out forwards;
 }
 
+@media screen and (max-width: 768px) {
+    .certification-container {
+        width: calc(100% - 15px); /* Adjust width for 2 containers per row */
+    }
+}
 
+@media screen and (max-width: 480px) {
+    .certification-container {
+        width: calc(100% - 10px); /* Adjust width for 1 container per row */
+    }
+}
 
-
-
-
-
-/* publication section */
 
 #publications {
     display: flex;
@@ -1786,6 +1856,7 @@ section {
     padding: 50px;
     background-color: #0c013af7;
     position: relative;
+    flex-direction: column; /* Stack items vertically on smaller screens */
 }
 
 .publication-container {
@@ -1796,11 +1867,12 @@ section {
     display: flex;
     align-items: center;
     margin: 0 auto;
+    flex-direction: column; /* Stack items vertically on smaller screens */
 }
 
 .publication-image {
-    width: 60%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(110, 255, 255, 0.941);
@@ -1812,20 +1884,19 @@ section {
 .publication-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
     transition: transform 0.3s ease;
     border-radius: 15px;
 }
 
 .publication-details {
-    position: absolute;
+    position: relative;
     z-index: 2;
     background-color: #d4a6fe;
     padding: 30px;
-    width: 50%;
-    left: 45%;
-    top: 50%;
-    transform: translateY(-50%) translateX(-20px);
+    width: 100%;
+    top: 20px;
+    transform: translateY(0);
     transition: transform 0.3s ease;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -1888,14 +1959,14 @@ section {
 }
 
 #prev-publication {
-    left: 140px;
-    top: 50%;
+    left: 100px;
+    top: 20%;
     transform: translateY(-50%);
 }
 
 #next-publication {
-    right: 140px;
-    top: 50%;
+    right: 100px;
+    top: 20%;
     transform: translateY(-50%);
 }
 
@@ -1905,6 +1976,68 @@ section {
     box-shadow: 0 6px 20px rgba(110, 255, 255, 0.4);
 }
 
+@media screen and (max-width: 1024px) {
+    .publication-container {
+        width: 80%;
+        height: auto;
+    }
+
+    .publication-image {
+        height: 50%;
+    }
+
+    .publication-details {
+        width: 90%;
+        top: 10px;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .publication-container {
+        width: 90%;
+        height: auto;
+    }
+
+    .publication-image {
+        height: 40%;
+    }
+
+    .publication-details {
+        width: 100%;
+        top: 10px;
+        transform: translateY(0);
+    }
+
+    #prev-publication, #next-publication {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .publication-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .publication-image {
+        height: 30%;
+    }
+
+    .publication-details {
+        width: 100%;
+        top: 10px;
+        transform: translateY(0);
+    }
+
+    #prev-publication, #next-publication {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+}
 
 
 /* Volunteer Section */
@@ -2021,6 +2154,19 @@ section {
 .volunteer-item.animate {
     animation: popIn 0.5s ease-out forwards;
 }
+
+@media screen and (max-width: 768px) {
+    .volunteer-item {
+        width: calc(100% - 20px); /* Adjust width for two items per row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .volunteer-item {
+        width: calc(100% - 20px); /* Adjust width for one item per row */
+    }
+}
+
 
 
 
